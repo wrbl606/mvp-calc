@@ -16,7 +16,12 @@ namespace Calculator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Calculator calculator = new Calculator();
+            Presenter presenter = new Presenter(calculator);
+            Form1 view = new Form1();
+            view.Presenter = presenter;
+            presenter.CalculatorView = view;
+            Application.Run(view);
         }
     }
 }
